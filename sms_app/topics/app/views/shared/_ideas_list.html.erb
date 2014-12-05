@@ -1,0 +1,34 @@
+<h1 class="header_content">Ideas</h1>
+<div class="post-box">	
+	<%= form_for(Idea.new,:remote=>true) do |f| %>
+	  <div class="field">    
+	    <%= f.text_field :title ,:size=>"75",:placeholder=>"Enter Title" %>
+	  </div>
+	  	<%= f.hidden_field :user_id,value: current_user.id %>
+	  <div class="field">    
+	    <%= f.text_area :content ,:rows=>"3",:cols=>"75" ,:placeholder=>"Enter Text"%>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+</div>
+<div class="list-box">	
+	<% ideas.reverse.each do |idea| %>
+		<div class="image_show">
+			<span ><%= image_tag(idea.user.image.url(:thumb),size: "35x35") if idea.user.image.present? %></span>
+		</div>
+		<div class="list-box-item">
+			<div class="post-section">
+				<h3 class="title">Q) <%= idea.title %></h3>
+				<p class="desc"><%= idea.content %></p>
+				<span id="user_name"><%="#{time_ago_in_words(idea.created_at)} ago "%></span>.
+				<span id="user_name"><%= idea.user.name %></span>
+			</div>
+			<div class="reply-section" id="comment_section_<%= idea.id %>">
+				<%= render partial: 'comments/idea_comments' ,locals: {idea: idea} %>
+			</div> 
+		</div>
+	<% end %>
+</div>
+

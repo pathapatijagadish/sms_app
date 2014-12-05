@@ -1,0 +1,142 @@
+body {
+	font-family: Arial
+}
+#good_reply{
+    text-decoration: none !important;
+}
+.top-section {
+	width:65%;
+	margin:auto;
+	ul {
+		margin:0px;padding:0px;
+		float:left;
+		li {
+			display:inline-block;
+			padding:7px 7px 4px;
+			background: #dddddd;
+			a,a:active,a:visited{
+				text-decoration:none;
+				color:black;
+			}
+		}
+		li:hover,li.active {
+			background: blueviolet;
+			a {
+				color:white;
+			}
+		}
+	}
+}
+.body-section {
+	margin:auto;
+	width:65%;
+	margin-top:10px;
+}
+.body-section.bordered-box {
+	border:1px solid black;
+}
+
+.post-box {
+	margin:10px 20px 10px 10px;
+	.field {
+		input, textarea {
+			width: 100%;
+			padding: 5px;
+			border: 1px solid blue;
+			box-shadow: 1px 1px #7583c7;
+			border-radius: 3px;
+			font-size:14px;
+		}
+	}
+	.actions {
+		input {
+			padding:5px 10px;
+			font-size:13px;
+			font-weight:bold;
+			background: #7583c7;
+			border:none;
+			box-shadow:2px 2px #6479d9;
+		}
+	}
+}
+.list-box {
+	margin:10px;
+	border:1px solid #8392a8;
+	width:98%;
+	.post-section {
+		color: blue;
+		.title {
+			margin: 8px 0px;
+		}
+		.desc {
+			margin:6px;
+			font-size:13px;
+			line-height:14px;
+		}
+	}
+	.list-box-item {
+		border-bottom: 1px solid #782976;
+		margin:1%;
+	}
+	.reply-section {
+		h4{
+			font-style:italic;
+			color:violet;
+			margin: 8px 0px 4px 6px;
+		}
+		.comment-list {
+			padding: 5px 10px;
+			.posted_by {
+				margin: 3px 0px;
+				color: green;
+				a {
+					font-size:12px;
+				}
+				a:hover{
+					text-decoration: none;
+				}
+			}
+			.reply_comments {
+				margin-left:20px;
+				ul {
+					margin: 5px 0px;
+					padding: 0px;
+					li {
+						list-style-type:none;
+						display:block;
+						background: #7583c7;
+						color:white;font-size:11px;
+						padding:3px;
+						border: 1px solid #8274b8;
+						border-radius:4px;
+						margin-bottom:4px;
+					}
+				}
+				.form_row {
+					textarea {
+						width:99%;
+						min-height:40px;
+						border-radius:3px;
+					}
+				}
+				input[type="submit"] {
+					padding:5px;
+					font-size:13px;
+					font-weight:bold;
+					background: #7583c7;
+					border:none;
+					box-shadow:2px 2px #6479d9;
+				}
+				input[type="submit"]:hover{
+					color: white;
+				}
+			}
+		}
+		.leave_comment_section {
+			padding: 5px 10px;
+			textarea {
+				width: 99%;
+			}
+		}
+	}
+}

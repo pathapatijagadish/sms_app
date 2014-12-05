@@ -1,0 +1,9 @@
+<% if @question.present? %>
+	$('#comment_section_<%=@question.id %>').html("<%= escape_javascript(render :partial => 'comments/question_comments', :locals => { :question => @question } ) %>");
+<% elsif @idea.present? %>
+	$('#comment_section_<%=@idea.id %>').html("<%= escape_javascript(render :partial => 'comments/idea_comments', :locals => { :idea => @idea } ) %>");
+<% elsif @problem.present? %>
+	$('#comment_section_<%=@problem.id %>').html("<%= escape_javascript(render :partial => 'comments/problem_comments', :locals => { :problem => @problem } ) %>");
+<% else %>
+	$('#comment_section_<%=@praise.id %>').html("<%= escape_javascript(render :partial => 'comments/praise_comments', :locals => { :praise => @praise } ) %>");
+<% end %>

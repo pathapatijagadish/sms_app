@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style type="text/css" >
+		li a{
+			float: left;
+    		text-decoration: none;
+		}
+		ul {
+    		list-style-type: none;
+		}
+		#start_topic_form{
+			float: left;
+		}
+	</style>
+	<title>Page Title</title>
+	</head>
+<body>
+	<div id="start_topic_box">
+		<ul class="style_tabs clearfix translate">
+			<li class="question">
+				<a href="#question">Ask a question </a>
+			</li>
+			<li class="idea">
+				<a href="#idea">Share an idea</a>
+			</li>
+			<li class="problem">
+				<a href="#problem">Report a problem</a>
+			</li>
+			<li class="praise active">
+				<a href="#praise">Give praise</a>
+			</li>
+		</ul>
+		<form action="/myjabong/topics/new" data-autosubmit="false" id="start_topic_form" method="get">
+			<fieldset>
+				<input class="style" id="topic_style" name="topic[style]" value="praise" type="hidden">
+				<input id="from" name="from" value="company" type="hidden">
+				<input id="product" name="product" value="" type="hidden">
+				<div class="textbox">
+					<textarea class="text query" cols="200" id="topic_query" name="topic[query]" rows="2" tabindex="2"></textarea>
+				</div>
+				<label class="prompt" for="topic_query" style="width: 485px;">What makes you happy about this company?</label>
+				<div class="results_container" id="inline_search_results" style="display:none"></div>
+				<a class="reset" href="#" onclick="; return false;">Start over</a>
+				<input class="submit" id="topic_go" name="commit" value="Continue" type="submit">
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html> 
+
+

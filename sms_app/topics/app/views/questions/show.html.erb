@@ -1,0 +1,12 @@
+<div >
+    <p class="posted_by">
+        <%= index+=1 %>.
+        <%= comment.content.html_safe %>
+        <% if comment.count.present? %>
+            <%= link_to "Good Reply(<span>#{comment.count}</span>)".html_safe , good_reply_path(comment) ,:id => "good_reply"%>
+        <% else %>
+            <%= link_to "good reply", good_reply_path(comment) %>
+        <% end %>
+        <%= link_to "Comment", "#" %>
+    </p>
+</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Topics</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="top-section">
+		<ul>
+			<li><%= link_to "Recent Activity",latest_home_index_path,:remote => true%></li>
+			<li><%= link_to "Questions", questions_path, :remote => true %></li>
+			<li><%= link_to "Ideas", ideas_path, :remote => true %></li>
+			<li><%= link_to "Problems", problems_path, :remote => true %></li>
+			<li><%= link_to "Praises", praises_path, :remote => true %></li>
+		</ul>
+		<div id = 'commmon_id' style="float:right;">
+			<% if user_signed_in? %>
+				Logged In as: <%= current_user.email %> ||<%= link_to "Log out",destroy_user_session_path,:method=>:delete %>
+			<% else %>
+				<%= link_to "Log In",  new_user_session_path  %> || <%= link_to "SignUp",new_user_registration_path %>
+			<% end %>
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+	<div class="body-section">
+		<%= yield %>
+	</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".top-section ul li a").click(function(){
+			$(".top-section ul li").removeClass("active");
+			$(this).parent().addClass("active");
+			//$(".body-section").addClass("bordered-box");
+		})
+	})
+</script>
+</html>

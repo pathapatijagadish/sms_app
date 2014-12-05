@@ -1,0 +1,20 @@
+ <div class="row">
+    <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav" style="position: fixed;height: auto;z-index: 100">
+          	<li ng-repeat="post in data.posts">
+	    		<a ng-click="viewPost($index)"><i class="icon-chevron-right"></i>{{post.title}}</a>
+	    	</li>
+        </ul>
+    </div>
+    <div class="span9">
+		<section>
+	        <div class="page-header">
+	           <h1>My blog</h1>
+	        </div>
+	        <div ng-repeat="post in data.posts">
+          		<h2 ><a ng-click="viewPost($index)">{{post.title}}</a></h2>
+          		<p>{{post.contents}}</p>
+	        </div> 	
+        </section>
+   	</div>
+</div>  

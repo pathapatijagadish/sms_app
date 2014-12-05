@@ -1,0 +1,35 @@
+<h1 class="header_content">Recent Activities</h1>
+<div class="list-box">
+  <% @sorted_coll.each do |latest| %>
+    <div class="list-box-item">
+      <div class="post-section">
+        <div class="image_show">
+          <span ><%= image_tag(latest.user.image.url(:thumb),size: "35x35") if latest.user.present? && latest.user.image.present? %></span>
+        </div>
+        <h3 class="title">
+          Q) <%= latest.title %>
+        </h3>
+        <p class="desc">
+          <%= latest.content %>
+        </p>
+      </div>
+      <% if latest.class == Question %>
+        <div class="reply-section" id="comment_section_<%= latest.id %>">
+          <%= render partial: 'comments/question_comments' ,locals: {question: latest} %>
+        </div>
+      <% elsif latest.class == Idea %>
+        <div class="reply-section" id="comment_section_<%= latest.id %>">
+          <%= render partial: 'comments/idea_comments' ,locals: {idea: latest} %>
+        </div>
+      <% elsif latest.class == Problem %>
+        <div class="reply-section" id="comment_section_<%= latest.id %>">
+          <%= render partial: 'comments/problem_comments' ,locals: {problem: latest} %>
+        </div>
+      <% else %>
+        <div class="reply-section" id="comment_section_<%= latest.id %>">
+          <%= render partial: 'comments/praise_comments' ,locals: {praise: latest} %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
